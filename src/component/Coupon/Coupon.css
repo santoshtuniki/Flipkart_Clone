@@ -1,0 +1,34 @@
+#coupon{
+	height: 320px;
+	width: 50%;
+	background-color: gray;
+	z-index:120;
+	margin-left:25%;
+	visibility: hidden;
+	position: fixed;
+	margin-top: 200px;
+	box-shadow: 10px 15px 30px gray;
+	border: 2px solid #dce14d;
+}
+
+#coupon > img {
+	height: 100%;
+	width: 100%;
+}
+
+.btn-coupon{
+	height: 30px;
+	width: 30px;
+	font-size: 18px;
+	font-weight: 800;
+	border-radius: 50%;
+	color: red;
+	background-color: lightcyan;
+	border: 1px solid gray;
+}
+
+#coupon > .btn-coupon{
+	position: absolute;
+	right: 0;
+	top: 5px;
+}

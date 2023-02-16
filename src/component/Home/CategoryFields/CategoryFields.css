@@ -1,0 +1,112 @@
+#category-Fields {
+	margin: 10px;
+}
+
+/* ComponentHeader */
+#components {
+	margin: 20px 0;
+	border: 1px solid rgb(230, 228, 228);
+}
+
+.componentsHeader {
+	width: 96%;
+	margin-left: 2%;
+	margin-top: 10px;
+	display: flex;
+}
+
+.title-box {
+	width: 80%;
+}
+
+.view-box {
+	width: 20%;
+	min-width: 90px;
+	text-align: center;
+	margin: 10px 0;
+}
+
+.title {
+	font-weight: 600;
+}
+
+.subtitle {
+	opacity: .6;
+	font-size: 16px;
+}
+
+/* Owl Carousel */
+.owl-nav {
+	display: none;
+}
+
+.owlTile {
+	height: 260px;
+	font-size: 14px;
+	text-align: center;
+	padding: 15px 20px;
+}
+
+.name {
+	font-weight: 600;
+}
+
+.cost {
+	color: #388e3c;
+	padding-top: 8px;
+}
+
+.highlights {
+	opacity: .6;
+	padding-top: 7px;
+}
+
+/* Category1 */
+.owlComponent1 {
+	height: 140px;
+	width: 100%;
+	margin-bottom: 10px;
+	padding: 13px 20px;
+}
+
+.owlComponent1 > img {
+	height: 110px;
+}
+
+.owlComponent1 > img:hover {
+	transform: scale(1.1);
+}
+
+.owlComponent2 {
+	height: 80px;
+	width: 100%;
+}
+
+.owlComponent2 > span {
+	display: block;
+}
+
+/* Category2 */
+.owlComponent3 {
+	height: 170px;
+	width: 100%;
+	margin-bottom: 10px;
+	padding: 13px 25px;
+}
+
+.owlComponent3 > img {
+	height: 140px;
+}
+
+.owlComponent3 > img:hover {
+	transform: scale(1.1);
+}
+
+.owlComponent4 {
+	height: 50px;
+	width: 100%;
+}
+
+.owlComponent4 > span {
+	display: block;
+}

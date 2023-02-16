@@ -1,0 +1,10 @@
+#headerDiv {
+	display: flex;
+	flex-direction: column;
+}
+
+@media screen and (max-width:1263px) {
+	#headerDiv {
+		flex-direction: column-reverse;
+	}
+}

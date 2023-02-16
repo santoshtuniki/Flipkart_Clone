@@ -1,0 +1,76 @@
+body {
+	margin: 0;
+	width: 100%;
+	min-height: 100vh;
+	position: relative;
+	list-style: 1.4;
+	font-size: 14px;
+}
+
+#hiddenBar {
+	display: none;
+	height: 50px;
+	margin: 0;
+	margin-top: 60px;
+	border: 2px solid #2874f0;
+	padding-top: 5px;
+	background-color: #2874f0;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+	border: none;
+	outline: none;
+}
+
+.break {
+	width: 100%;
+	height: 1px;
+	background-color: grey;
+}
+
+/* Home CSS */
+br {
+	margin: 10px 0;
+}
+
+#main {
+	width: 100%;
+	margin-top: 58px;
+}
+
+.mywhite {
+	background-color: white;
+	color: black;
+}
+
+.mydark {
+	background-color: black;
+	color: #fff;
+}
+
+/* Listing CSS */
+
+hr {
+	margin: 10px 0;
+	background-color: #80808091;
+}
+
+.hide {
+	display: none;
+}
+
+.listBreak {
+	width: 100%;
+	margin-top: 95px;
+	border: 1px solid #735d5d26;
+	border-top: none;
+}
+
+.mainListing {
+	width: 99%;
+	display: flex;
+	margin: 10px;
+	font-size: 14px;
+}

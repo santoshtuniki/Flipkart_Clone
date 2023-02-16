@@ -1,0 +1,43 @@
+br {
+	margin: 10px 0;
+}
+
+#main {
+	width: 100%;
+	margin-top: 58px;
+}
+
+.mywhite {
+	background-color: white;
+	color: black;
+}
+
+.mydark {
+	background-color: black;
+	color: #fff;
+}
+
+
+.dest {
+	margin-top: 20px;
+	padding: 50px 34px 10px;
+	color: #878787;
+	border: 1px solid rgb(230, 228, 228);
+}
+
+.dest > h1 {
+	font-size: 16px;
+	margin-bottom: 10px;
+	font-weight: 700;
+}
+
+.dest > h2 {
+	font-size: 14px;
+	margin-bottom: 10px;
+	font-weight: 700;
+}
+
+.dest > p {
+	line-height: 16px;
+	font-size: 11px;
+}
