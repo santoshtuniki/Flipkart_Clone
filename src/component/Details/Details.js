@@ -20,7 +20,8 @@ class Details extends Component {
 	}
 
 	proceed=() => {
-		sessionStorage.setItem('orderItem',this.state.catId);
+		console.log("presentOrderID: ",this.state.details.Product_id)
+		sessionStorage.setItem('orderedItem',this.state.details.Product_id);
 		this.props.history.push(`/placeOrder/${this.state.details.Product_id}`);
 	}
 

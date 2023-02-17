@@ -1,14 +1,14 @@
 .orderItems{
 	float:left;
-	height:300px;
-	width:250px;
-	margin:2%;
+	height:360px;
+	width:249px;
+	margin:2% 1%;
 	padding: 20px 10px;
 	box-shadow:10px 10px 20px gray
 }
 
 .orderItems>img{
-	height:180px;
+	height:240px;
 	width:100%;
 	margin-bottom: 10px;
 }

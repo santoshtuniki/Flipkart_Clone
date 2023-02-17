@@ -45,13 +45,21 @@ class PlaceOrder extends Component {
 		// .then(this.props.history.push('/viewBooking'))
 	}
 
+	name = (data) => {
+		if(data.length<35){
+			return data;
+		}else{
+			return (data.slice(0,35)+" ...")
+		}
+	}
+
 	renderItem=(data) => {
 		if(data){
 			return data.map((item) => {
 				return(
 					<div className="orderItems" key={item.Product_id}>
 						<img src={item.Image} alt={item.Product_name}/>
-						<h4>{item.Product_name}</h4>
+						<h5>{this.name(item.Product_name)}</h5>
 						<h5>Rs. {item.Selling_price}</h5>
 					</div>
 				)
@@ -99,7 +107,7 @@ class PlaceOrder extends Component {
 								{this.renderItem(this.state.orderedItem)}
 								<div className="row">
 									<div className="col-md-12">
-										<h2>Total Price is Rs.{this.state.cost}</h2>
+										<h4>Total Price is Rs.{this.state.cost}</h4>
 									</div>
 								</div>
 								<button style={{marginLeft:'12px'}} className="btn btn-success" onClick={this.checkout} type="submit">
@@ -120,7 +128,7 @@ class PlaceOrder extends Component {
 		
 		orderedItem.split(',').map((item) => {
 			orderId.push(parseInt(item));
-			return 'ok'
+			return 'receiveOrderId ok'
 		})
 		
 		// let orderID = JSON.stringify(orderId)
