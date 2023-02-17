@@ -14,7 +14,6 @@ class Details extends Component {
 		super(props);
 		this.state={
 			details:'',
-			productList:[],
 			catId:sessionStorage.getItem("categoryId")
 		}
 	}
