@@ -547,6 +547,7 @@ input {
 
 .placeOrder {
 	width: 70%;
+	max-width: 875px;
 	height: 60px;
 	padding: 10px;
 	margin-left: 10px;

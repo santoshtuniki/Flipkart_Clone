@@ -5,7 +5,8 @@ import ComponentHeader from "./ComponentHeader";
 import OwlCarousel1 from "./OwlCarousel1";
 import OwlCarousel2 from "./OwlCarousel2";
 
-const lurl = "https://flipkartapi-wnfd.onrender.com/products";
+// const lurl = "https://flipkartapi-wnfd.onrender.com/products";
+const lurl = "http://localhost:9800/products";
 
 class CategoryFields extends Component {
 

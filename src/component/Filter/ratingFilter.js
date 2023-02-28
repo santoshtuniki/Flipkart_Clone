@@ -1,7 +1,8 @@
 import React,{Component} from 'react';
 import axios from 'axios';
 
-const url = "https://flipkartapi-wnfd.onrender.com/filter";
+// const url = "https://flipkartapi-wnfd.onrender.com/filter";
+const url = "http://localhost:9800/filter";
 
 class RatingFilter extends Component {
 

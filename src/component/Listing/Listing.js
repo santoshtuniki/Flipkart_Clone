@@ -12,7 +12,8 @@ import SortFilter from "../Filter/sortFilter";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 
-const lurl = "https://flipkartapi-wnfd.onrender.com/products?categoryId=";
+// const lurl = "https://flipkartapi-wnfd.onrender.com/products?categoryId=";
+const lurl = "http://localhost:9800/products?categoryId=";
 
 class Listing extends Component {
 	

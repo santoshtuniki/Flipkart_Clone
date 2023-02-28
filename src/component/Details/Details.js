@@ -7,7 +7,8 @@ import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import RightContent from "./RightContent";
 
-const lurl = "https://flipkartapi-wnfd.onrender.com/details";
+// const lurl = "https://flipkartapi-wnfd.onrender.com/details";
+const lurl = "http://localhost:9800/details";
 
 class Details extends Component {
 	constructor(props){
@@ -20,7 +21,7 @@ class Details extends Component {
 
 	proceed=() => {
 		console.log("presentOrderID: ",this.state.details.Product_id)
-		sessionStorage.setItem('orderedItem',this.state.details.Product_id);
+		sessionStorage.setItem('buyItem',this.state.details.Product_id);
 		this.props.history.push(`/placeOrder/${this.state.details.Product_id}`);
 	}
 

@@ -21,7 +21,6 @@ const OwlCarousel1 = (props) => {
 									<div className="owlComponent2">
 										<span className="name">{item.Product_name}</span>
 										<span className="cost">For {item.Selling_price}</span>
-										
 									</div>
 								</div>
 							</Link>

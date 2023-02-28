@@ -4,10 +4,11 @@ import "./PlaceOrder.css";
 
 import Navbar from "../Navbar/Navbar";
 
-const url = "https://flipkartapi-wnfd.onrender.com/orderedItems";
-const oUrl = "http://localhost:8700/orders";
-
+// const url = "https://flipkartapi-wnfd.onrender.com/orderedItems";
 // const oUrl = "https://flipkartapi-wnfd.onrender.com/orders";
+
+const url = "http://localhost:9800/orderedItems";
+const oUrl = "http://localhost:8700/orders";
 
 class PlaceOrder extends Component {
 
@@ -15,7 +16,7 @@ class PlaceOrder extends Component {
 		super(props)
 		this.state = {
 			id:Math.floor(Math.random()*10000),
-			Order_name:this.props.match.params.prodId,
+			OrderIds:this.props.match.params.prodId,
 			name:'Ankit',
 			email:'ankit@gmail.com',
 			cost:0,
@@ -74,13 +75,13 @@ class PlaceOrder extends Component {
 				<div className="container" style={{marginTop:'95px'}}>
 					<div className="card">
 						<div className="card-header text-bg-primary">
-							<h3>Order for {this.state.Order_name}</h3>
+							<h3>Order for {this.state.OrderIds}</h3>
 						</div>
 						<div className="card-body">
 							<form action="http://localhost:4100/paynow" method="POST">
 								<input type="hidden" name="cost" value={this.state.cost}/>
 								<input type="hidden" name="id" value={this.state.id}/>
-								<input type="hidden" name="Order_name" value={this.state.Order_name}/>
+								<input type="hidden" name="OrderIds" value={this.state.OrderIds}/>
 								<div className="row">
 									<div className="form-group col-md-6">
 										<label htmlFor="fname" className="control-label">FirstName</label>
@@ -122,14 +123,20 @@ class PlaceOrder extends Component {
 	}
 
 	componentDidMount(){
-		let orderedItem = sessionStorage.getItem('orderedItem');
-		console.log("orderedItem: ",orderedItem)
 		let orderId = [];
-		
-		orderedItem.split(',').map((item) => {
-			orderId.push(parseInt(item));
-			return 'receiveOrderId ok'
-		})
+
+		let buyItem = sessionStorage.getItem('buyItem');
+		if(buyItem===null){
+			let orderedItem = sessionStorage.getItem('orderedItem');
+			console.log("orderedItem: ",orderedItem)
+			
+			orderedItem.split(',').map((item) => {
+				orderId.push(parseInt(item));
+				return 'receiveOrderId ok'
+			})
+		}else {
+			orderId.push(parseInt(buyItem));
+		}
 		
 		// let orderID = JSON.stringify(orderId)
 		let orderID = {id: orderId}

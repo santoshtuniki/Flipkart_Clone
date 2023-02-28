@@ -118,7 +118,7 @@ class Navbar extends Component {
 									</ul>
 								</li>
 								<li>
-									<Link className="nav-link active" to="#">
+									<Link className="nav-link active" to="/">
 										<span><i className="fa-solid fa-cart-shopping cart"></i></span>
 										Cart
 									</Link>

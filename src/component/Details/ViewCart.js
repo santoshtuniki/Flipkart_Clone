@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 
 import Navbar from "../Navbar/Navbar";
 
-const lurl = "https://flipkartapi-wnfd.onrender.com/details";
+// const lurl = "https://flipkartapi-wnfd.onrender.com/details";
+const lurl = "http://localhost:9800/details";
 
 class ViewCart extends Component {
 
@@ -13,7 +14,6 @@ class ViewCart extends Component {
 		this.state={
 			viewdata:this.props.location.state,
 			details:'',
-			userItem:''
 		}
 	}
 
@@ -22,8 +22,7 @@ class ViewCart extends Component {
 	placeOrder = () => {
 		console.log("presentOrderID: ",this.orderId)
 		sessionStorage.setItem('orderedItem',this.orderId);
-		this.setState({userItem:this.orderId})
-		this.props.history.push(`/placeOrder/${this.state.viewdata.Product_id}`);
+		this.props.history.push(`/placeOrder/${this.orderId}`);
 	}
 
 	removeOrder=(id)=>{
@@ -31,9 +30,9 @@ class ViewCart extends Component {
 		if(this.orderId.indexOf(id) > -1){
 			this.orderId.splice(this.orderId.indexOf(id), 1);
 		}
-		console.log(`orderID after removing id:${id} is`,this.orderId)
+		console.log(`orderID after removing id: ${id} is`,this.orderId)
 		sessionStorage.setItem('orderedItem',this.orderId);
-		this.setState({userItem:this.orderId})
+		window.location.reload(false)
 	}
 
 	minus = () => {
@@ -169,6 +168,18 @@ class ViewCart extends Component {
 		}
 	}
 
+	place = (viewdata) => {
+		if(viewdata!==''){
+			return (
+				<div className="placeOrder">
+					<button type="submit" className="btn cartButton" onClick={() => {this.placeOrder()}}>
+						Place Order
+					</button>
+				</div>
+			)
+		}
+	}
+
 	render(){
 		return(
 			<>
@@ -180,11 +191,7 @@ class ViewCart extends Component {
 					<div className="mainListing" style={{display:"block"}}>
 						{this.renderMenu(this.state.details)}
 					</div>
-					<div className="placeOrder">
-						<button type="submit" className="btn cartButton" onClick={() => {this.placeOrder()}}>
-							Place Order
-						</button>
-					</div>
+					{this.place(this.state.viewdata)}
 				</div>
 			</>
 		)
@@ -196,15 +203,16 @@ class ViewCart extends Component {
 
 		let data = [];
 		const {viewdata} = this.state;
-		if(this.orderId.indexOf(viewdata.Product_id) === -1){
-			this.orderId.push(viewdata.Product_id);
-		}
-		
+
 		if(orderedItem!==null){
 			orderedItem.split(',').map((item) => {
 				this.orderId.push(parseInt(item));
 				return 'ok';
 			})
+			if(this.orderId.indexOf(viewdata.Product_id) <= -1){
+				// console.log(`this.orderId.indexOf(${viewdata.Product_id}): `,this.orderId.indexOf(viewdata.Product_id))
+				this.orderId.push(viewdata.Product_id);
+			}
 			this.orderId.map(async (id) => {
 				let response = await axios.get(`${lurl}/${id}`);
 				// console.log(`id: ${id}`,response.data[0])
@@ -213,6 +221,7 @@ class ViewCart extends Component {
 			})
 		}else {
 			data.push(viewdata)
+			this.orderId.push(viewdata.Product_id);
 			this.setState({details:data});
 		}
 		console.log("orderedID after loading: ",this.orderId);

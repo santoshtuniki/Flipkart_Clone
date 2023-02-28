@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Category.css";
 
 import CatItems from "./CategoryItems";
@@ -15,7 +16,9 @@ const Category = () => {
 									<img src={item.CatImage} alt={item.CatName}/>
 								</div>
 								<div className={item.Catclass.bottom}>
-									{item.CatName}
+									<Link to={`/listing/${item.CatId}`}>
+										{item.CatName}
+									</Link>
 								</div>
 							</div>
 						)

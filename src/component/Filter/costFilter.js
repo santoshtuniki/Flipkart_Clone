@@ -2,7 +2,8 @@ import React,{Component} from 'react';
 import axios from 'axios';
 import CostData from "./costData";
 
-const url = "https://flipkartapi-wnfd.onrender.com/filter";
+// const url = "https://flipkartapi-wnfd.onrender.com/filter";
+const url = "http://localhost:9800/filter";
 
 class CostFilter extends Component {
 

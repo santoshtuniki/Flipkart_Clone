@@ -4,8 +4,9 @@ import axios from 'axios';
 import Navbar from "../Navbar/Navbar";
 import DisplayOrder from './DisplayOrder';
 
-const orderApi = "http://localhost:8700/orders";
 // const orderApi = "https://flipkartapi-wnfd.onrender.com/orders";
+
+const orderApi = "http://localhost:8700/orders";
  
 class ViewOrder extends Component{
 

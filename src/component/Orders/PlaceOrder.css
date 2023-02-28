@@ -1,14 +1,15 @@
 .orderItems{
-	float:left;
-	height:360px;
-	width:249px;
-	margin:2% 1%;
+	float: left;
+	height: 330px;
+	width: 240px;
+	margin: 2% 1%;
 	padding: 20px 10px;
-	box-shadow:10px 10px 20px gray
+	box-shadow: 10px 10px 20px gray
 }
 
 .orderItems>img{
-	height:240px;
-	width:100%;
+	height: 210px;
+	width: 76%;
+	margin: 0 12%;
 	margin-bottom: 10px;
 }
