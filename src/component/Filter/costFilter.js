@@ -1,9 +1,8 @@
-import React,{Component} from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 import CostData from "./costData";
 
-// const url = "https://flipkartapi-wnfd.onrender.com/filter";
-const url = "http://localhost:9800/filter";
+import { parentUrl } from '../Urls';
 
 class CostFilter extends Component {
 
@@ -13,31 +12,31 @@ class CostFilter extends Component {
 		let lcost = cost[0];
 		let hcost = cost[1];
 		let costUrl = "";
-		if(event.target.value === ""){
-			costUrl = `${url}/${catId}`
-		}else{
-			costUrl =`${url}/${catId}?hcost=${hcost}&lcost=${lcost}`
+		if (event.target.value === "") {
+			costUrl = `${parentUrl}/filter/${catId}`
+		} else {
+			costUrl = `${parentUrl}/filter/${catId}?hcost=${hcost}&lcost=${lcost}`
 		}
 		axios.get(costUrl)
-			.then((res) => {this.props.productPerRange(res.data)})
+			.then((res) => { this.props.productPerRange(res.data) })
 	}
 
-	render(){
+	render() {
 		const filteredData = CostData.filter((item) => item.id === this.props.catId);
-		return(
+		return (
 			<>
 				<div className="filterDiv">
 					<h2 className="subHeading">PRICE</h2>
 					<div onChange={this.CostFilter}>
 						<label className="filterItem">
-							<input type="radio" name="cost" value=""/>
+							<input type="radio" name="cost" value="" />
 							ALL
 						</label>
 						{
-							filteredData[0].range.map((item,index) => {
+							filteredData[0].range.map((item, index) => {
 								return (
 									<label className="filterItem" key={index}>
-										<input type="radio" name="cost" value={item}/>
+										<input type="radio" name="cost" value={item} />
 										{item}
 									</label>
 								)

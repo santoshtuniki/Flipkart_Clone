@@ -6,43 +6,41 @@ import "./Details.css";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import RightContent from "./RightContent";
-
-// const lurl = "https://flipkartapi-wnfd.onrender.com/details";
-const lurl = "http://localhost:9800/details";
+import { parentUrl } from '../Urls';
 
 class Details extends Component {
-	constructor(props){
+	constructor(props) {
 		super(props);
-		this.state={
-			details:'',
-			catId:sessionStorage.getItem("categoryId")
+		this.state = {
+			details: '',
+			catId: sessionStorage.getItem("categoryId")
 		}
 	}
 
-	proceed=() => {
-		console.log("presentOrderID: ",this.state.details.Product_id)
-		sessionStorage.setItem('buyItem',this.state.details.Product_id);
+	proceed = () => {
+		console.log("presentOrderID: ", this.state.details.Product_id)
+		sessionStorage.setItem('buyItem', this.state.details.Product_id);
 		this.props.history.push(`/placeOrder/${this.state.details.Product_id}`);
 	}
 
 	render() {
-		let {details} = this.state;
+		let { details } = this.state;
 		return (
 			<>
-				<Navbar/>
+				<Navbar />
 				<div className="listBreak"></div>
 				<div className="mainListing">
 					<div className="content">
 						<div className="leftContent">
 							<div className="image">
-								<img className="linkedImage" src={details.Image} alt={details.Product_name}/>
+								<img className="linkedImage" src={details.Image} alt={details.Product_name} />
 							</div>
 							<div className="fav">
 								<img className="favImage" src="https://i.ibb.co/mX64hZ9/solid-gray-heart-hi.png" alt="gray-heart" />
 							</div>
 							<div className="row">
 								<div className="col-lg-6 zeroPadding">
-									<Link to={{pathname:"/viewCart",state:details}}>
+									<Link to={{ pathname: "/viewCart", state: details }}>
 										<button type="submit" className="buy cartButton">
 											<i className="fa fa-shopping-cart cart" aria-hidden="true"></i>
 											ADD TO CART
@@ -50,25 +48,25 @@ class Details extends Component {
 									</Link>
 								</div>
 								<div className="col-lg-6 zeroPadding">
-										<button type="submit" className="buy nowButton" onClick={this.proceed}>
-											<i className="bi bi-lightning-fill"></i>
-											BUY NOW
-										</button>
+									<button type="submit" className="buy nowButton" onClick={this.proceed}>
+										<i className="bi bi-lightning-fill"></i>
+										BUY NOW
+									</button>
 								</div>
 							</div>
 						</div>
-						<RightContent details={this.state.details}/>
+						<RightContent details={this.state.details} />
 					</div>
 				</div>
-				<Footer/>
+				<Footer />
 			</>
 		)
 	}
 
 	async componentDidMount() {
 		let prodId = this.props.location.search.split('=')[1];
-		let response = await axios.get(`${lurl}/${prodId}`);
-		this.setState({details:response.data[0]}); 
+		let response = await axios.get(`${parentUrl}/details/${prodId}`);
+		this.setState({ details: response.data[0] });
 	}
 }
 

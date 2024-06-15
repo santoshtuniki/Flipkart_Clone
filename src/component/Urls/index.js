@@ -1,0 +1,1 @@
+export const parentUrl = "https://flipkartapi-wnfd.onrender.com"

@@ -11,9 +11,7 @@ import DiscountFilter from "../Filter/discountFilter";
 import SortFilter from "../Filter/sortFilter";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
-
-// const lurl = "https://flipkartapi-wnfd.onrender.com/products?categoryId=";
-const lurl = "http://localhost:9800/products?categoryId=";
+import { parentUrl } from "../Urls";
 
 class Listing extends Component {
 	
@@ -102,7 +100,7 @@ class Listing extends Component {
 		// Sets the value of the pair identified by key to value, creating a new key/value pair if none existed.
 		sessionStorage.setItem('categoryId',categoryId);	// setItem(key,value)
 		// get(url: string, config?: AxiosRequestConfig<any> | undefined)
-		axios.get(`${lurl}${categoryId}`)
+		axios.get(`${parentUrl}/products?categoryId=${categoryId}`)
 		.then((res) => {this.setState({categoryList:res.data,catId:categoryId})});
 	}
 }
